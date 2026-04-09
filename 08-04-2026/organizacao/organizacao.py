@@ -1,7 +1,7 @@
 import pandas as pd
 
 # 1. Carregar o dataset original
-df = pd.read_csv('embraer.csv')
+df = pd.read_csv('embraer2.csv')
 
 # 2. Remover a coluna 'Change %' (a menos impactante)
 if 'Change %' in df.columns:
