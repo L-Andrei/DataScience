@@ -1,2 +1,12 @@
-previsão do dia 08/04: 81.01
-resultado real do dia 08/04: 
+07/04: preço atual 81.63
+
+08/04:
+previsão pelo modelo de regressão linear: 81.93
+previsão pelo xpgbost : 81.73
+resultado real do dia real: 85.19
+
+
+09/04:
+previsão pelo modelo de regressão linear: 85.82 
+previsão pelo xpgbost: 84.67
+resultado do dia: 
