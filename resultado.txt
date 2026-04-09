@@ -9,4 +9,4 @@ resultado real do dia real: 85.19
 09/04:
 previsão pelo modelo de regressão linear: 85.82 
 previsão pelo xpgbost: 84.67
-resultado do dia: 
+resultado do dia: 85.83
