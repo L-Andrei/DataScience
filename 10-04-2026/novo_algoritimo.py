@@ -12,7 +12,7 @@ df = df.sort_values('Date')
 df['SMA_5'] = df['Price'].rolling(5).mean()
 df['Retorno_Hoje'] = df['Price'].pct_change()
 
-# --- PONTO CRUCIAL: Capturamos o dia anterior  do dropna ---
+# Capturamos o dia anterior do dropna 
 features = ['Price', 'Open', 'High', 'Low', 'SMA_5', 'Retorno_Hoje']
 # Pegamos a última linha
 dados_ontem = df[features].iloc[[-1]]
@@ -26,16 +26,16 @@ df_treino = df.dropna()
 X = df_treino[features]
 y = df_treino['Diff']
 
-# 2. Divisão 90% Treino e 10% Teste
+#Divisão 90% Treino e 10% Teste
 split_idx = int(len(X) * 0.9)
 X_train, X_test = X.iloc[:split_idx], X.iloc[split_idx:]
 y_train, y_test = y.iloc[:split_idx], y.iloc[split_idx:]
 
-# 3. Treinamento (LinearRegression costuma ser mais estável em tendências de alta)
+#Treinamento
 model = LinearRegression()
 model.fit(X_train, y_train)
 
-# 4. Verificação de Eficiência
+#Verificação de Eficiência
 diff_preds = model.predict(X_test)
 precos_reais = X_test['Price'] + y_test
 precos_previstos = X_test['Price'] + diff_preds
@@ -49,7 +49,7 @@ print(f"MAE Baseline: R$ {baseline_mae:.2f}")
 print(f"R² Score: {r2_score(precos_reais, precos_previstos):.4f}")
 
 
-# Usamos os dados isolados de 09/04 para prever a variação de hoje
+# Usamos os dados isolados de 09/04 para prever a variação de 10/04
 variacao_prevista = model.predict(dados_ontem)[0]
 preco_ontem = dados_ontem['Price'].values[0]
 
