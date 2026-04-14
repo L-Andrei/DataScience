@@ -6,7 +6,7 @@ resultado real do dia real: 85.19
 
 09/04:
 previsão pelo modelo de regressão linear: 85.82 
-resultado do dia: 85.83
+resultado do dia: 85.35
 
 10/04:
 previsão do modelo: 85.50
