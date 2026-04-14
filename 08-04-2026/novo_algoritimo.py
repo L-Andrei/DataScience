@@ -24,7 +24,7 @@ split_idx = int(len(df) * 0.9)
 X_train, X_test = X.iloc[:split_idx], X.iloc[split_idx:]
 y_train, y_test = y.iloc[:split_idx], y.iloc[split_idx:]
 
-#Treinamento com Regressão Linear (A grande mudança)
+#Treinamento 
 model = LinearRegression()
 model.fit(X_train, y_train)
 

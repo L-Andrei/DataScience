@@ -66,7 +66,7 @@ def check_direction(actual, predicted):
 hits = sum([check_direction(a, p) for a, p in zip(actual_move, predicted_move)])
 total = len(df)
 accuracy = (hits / total) * 100
-avg_diff = np.abs(df['Price'] - df['Resultado']).mean()
+avg_diff = np.sqrt(((np.abs(df['Price'] - df['Resultado']))**2).mean())
 
 print(f"Direções acertadas: {hits} de {total} ({accuracy:.2f}%)")
 print(f"Valor em reais médio de diferença: R$ {avg_diff:.2f}")
