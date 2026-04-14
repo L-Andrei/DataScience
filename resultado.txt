@@ -1,17 +1,21 @@
-07/04: preço atual 81.63
+07/04: 13.95
 
 08/04:
-previsão pelo modelo de regressão linear: 81.93
-resultado real do dia real: 85.19
+previsão pelo modelo de regressão linear: 13.88
+resultado real do dia real: 14.48
+erro: 0.25
 
 09/04:
-previsão pelo modelo de regressão linear: 85.82 
-resultado do dia: 85.35
+previsão pelo modelo de regressão linear: 15.13
+resultado do dia: 14.74
+erro:0.37
 
 10/04:
-previsão do modelo: 85.50
-resultado real: 86.62
+previsão do modelo: 14.38
+resultado real: 14.81
+erro:0.26
 
 13/04:
-previsão do modelo: 86.62
-resultado real: 87.00
+previsão do modelo: 14.61 
+resultado real: 14.71
+erro:0.26

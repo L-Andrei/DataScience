@@ -1,10 +1,10 @@
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_absolute_error, r2_score
+from sklearn.metrics import root_mean_squared_error, r2_score
 
 #Preparação dos Dados
-df = pd.read_csv('EMBRAER_final.csv')
+df = pd.read_csv('itau.csv')
 df['Date'] = pd.to_datetime(df['Date'])
 df = df.sort_values('Date')
 
@@ -40,15 +40,14 @@ diff_preds = model.predict(X_test)
 precos_reais = X_test['Price'] + y_test
 precos_previstos = X_test['Price'] + diff_preds
 
-mae_final = mean_absolute_error(precos_reais, precos_previstos)
-baseline_mae = mean_absolute_error(precos_reais, X_test['Price'])
+mae_final = root_mean_squared_error(precos_reais, precos_previstos)
+baseline_mae = root_mean_squared_error(precos_reais, X_test['Price'])
 
 print("--- RELATÓRIO: REGRESSÃO LINEAR (13/04) ---")
 print(f"MAE Final: R$ {mae_final:.2f}")
 print(f"MAE Baseline: R$ {baseline_mae:.2f}")
 print(f"R² Score: {r2_score(precos_reais, precos_previstos):.4f}")
 
-#Usamos os dados isolados de 10/04 para prever a variação de hoje
 variacao_prevista = model.predict(dados_ontem)[0]
 preco_ontem = dados_ontem['Price'].values[0]
 

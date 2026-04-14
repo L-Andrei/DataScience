@@ -2,8 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-# 1. Carregar e preparar os dados
-df = pd.read_csv('embraer.csv')
+# Carregar e preparar os dados
+df = pd.read_csv('itau.csv')
 if 'Unnamed: 7' in df.columns:
     df = df.drop(columns=['Unnamed: 7'])
 
@@ -15,7 +15,7 @@ labels = df['Date'].dt.strftime('%d/%m/%y').tolist()
 x = np.arange(len(labels))
 width = 0.25
 
-# 2. Criar o gráfico de barras
+# Criar o gráfico de barras
 fig, ax = plt.subplots(figsize=(12, 7))
 
 # Plotagem das três barras para cada dia

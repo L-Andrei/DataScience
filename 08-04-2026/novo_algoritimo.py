@@ -1,10 +1,10 @@
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_absolute_error, r2_score
+from sklearn.metrics import root_mean_squared_error, r2_score
 
 #Preparação dos Dados
-df = pd.read_csv('EMBRAER_final.csv')
+df = pd.read_csv('itau.csv')
 df['Date'] = pd.to_datetime(df['Date'])
 df = df.sort_values('Date')
 
@@ -33,8 +33,8 @@ diff_preds = model.predict(X_test)
 precos_reais = X_test['Price'] + y_test
 precos_previstos = X_test['Price'] + diff_preds
 
-mae_final = mean_absolute_error(precos_reais, precos_previstos)
-baseline_mae = mean_absolute_error(precos_reais, X_test['Price'])
+mae_final = root_mean_squared_error(precos_reais, precos_previstos)
+baseline_mae = root_mean_squared_error(precos_reais, X_test['Price'])
 
 print("--- RELATÓRIO: REGRESSÃO LINEAR ---")
 print(f"MAE Final: R$ {mae_final:.2f}")
@@ -46,7 +46,6 @@ ultimo_dia = X.iloc[[-1]]
 variacao_prevista = model.predict(ultimo_dia)[0]
 preco_atual = ultimo_dia['Price'].values[0]
 
-print(f"\nPreço Atual: R$ {preco_atual:.2f}")
 print(f"Variação prevista: R$ {variacao_prevista:+.2f}")
 print(f"Tendência para amanhã: {'ALTA' if variacao_prevista > 0 else 'BAIXA'}")
 print(f"Previsão estimada: R$ {preco_atual + variacao_prevista:.2f}")
